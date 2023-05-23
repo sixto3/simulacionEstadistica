@@ -1,18 +1,17 @@
 # -*- coding: iso-8859-1 -*-
 
 # main.py
-
 from src.analisis_estadistico import AnalisisEstadistico
 from view.visualizacion import crear_histograma_normal, crear_histograma_superpuesto, mostrar_ocurrencias
 
 if __name__ == "__main__":
 
     #Apartado 1 (src.analisis_estadistico.py)
-    tamanio_muestra = 100
+    tamanio_muestra = 1000
     num_ensayos = 10
     probabilidad_de_exito = 0.5
     muestra_binomial = AnalisisEstadistico.generar_muestra_binomial(tamanio_muestra, num_ensayos, probabilidad_de_exito)
-    print(muestra_binomial)
+    #print(muestra_binomial) #comentar esta linea si va a ejecutar muestras grandes
     #mostrar_ocurrencias(muestra_binomial)
     
     #Apartado 2 (view.visualizacion.py)
@@ -35,7 +34,7 @@ if __name__ == "__main__":
 
     #Apartado 5
     muestra_nueva = AnalisisEstadistico.generar_muestra_nueva(muestra_binomial, media, varianza)
-    #print(muestra_nueva)
+    #print([round(x, 3) for x in muestra_nueva]) #comentar esta linea si va a ejecutar muestras grandes
     media_muestra_nueva = AnalisisEstadistico.calcular_media(muestra_nueva)
     varianza_muestra_nueva = AnalisisEstadistico.calcular_varianza(muestra_nueva)
     print("Media_nueva: ", abs(round(media_muestra_nueva, 6)))
